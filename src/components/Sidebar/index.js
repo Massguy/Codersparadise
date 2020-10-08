@@ -10,18 +10,26 @@ import {
   SidebarRoute,
 } from "./SidebarElement";
 
-export const Sidebar = () => {
+const Sidebar = ({ isOpen, toggle }) => {
   return (
-    <SidebarContainer>
-      <Icon>
+    <SidebarContainer isOpen={isOpen} onClick={toggle}>
+      <Icon onClick={toggle}>
         <CloseIcon />
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to="about">About</SidebarLink>
-          <SidebarLink to="discover">discover</SidebarLink>
-          <SidebarLink to="classes">classes</SidebarLink>
-          <SidebarLink to="signup">signup</SidebarLink>
+          <SidebarLink to="about" onClick={toggle}>
+            About
+          </SidebarLink>
+          <SidebarLink to="discover" onClick={toggle}>
+            discover
+          </SidebarLink>
+          <SidebarLink to="classes" onClick={toggle}>
+            classes
+          </SidebarLink>
+          <SidebarLink to="signup" onClick={toggle}>
+            signup
+          </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
           <SidebarRoute to="//signin">Sign In</SidebarRoute>
@@ -30,3 +38,4 @@ export const Sidebar = () => {
     </SidebarContainer>
   );
 };
+export default Sidebar;
